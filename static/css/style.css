@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+  }
+  
+  html {
+	height: 100%;
+	overflow: scroll;
+  }
+  
+  body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: url('/static/iplimg.png');
+	background-size: contain;
+  }
+
+  /* aaa */
+
+  .f-box {
+    position: absolute;
+    margin: 20px 0;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 3, 51, 0.95);
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    border: 1px solid #03e9f4;
+}
+
+.f-box h2 {
+    margin-bottom: 30px;
+    padding: 0;
+    color: #03e9f4;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.f-box .user-box {
+    position: relative;
+	margin:25px 0px;
+}
+
+.f-box .user-box input,
+.f-box .user-box select {
+	/* width: 100%; */
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(0, 3, 51, 0.8);
+    border: 1px solid #03e9f4;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.f-box .user-box input{
+	width: 94%;
+}
+
+.f-box .user-box select{
+	width: 100%;
+}
+
+.f-box .user-box input:focus,
+.f-box .user-box select:focus {
+    border-color: #82d7f4;
+    background: rgba(0, 3, 51, 0.9);
+    color: #82d7f4;
+}
+
+.f-box .user-box label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 14px;
+    color: #03e9f4;
+    pointer-events: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.sb{
+    margin: 10px 0px;
+}
+
+#btnn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(90deg, #03e9f4, #27AE60);
+    color: rgba(0, 3, 51, 0.9);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+#btnn:hover {
+    background: linear-gradient(90deg, #27AE60, #03e9f4);
+}
+
+.rheade{
+    color: #03e9f4;
+}

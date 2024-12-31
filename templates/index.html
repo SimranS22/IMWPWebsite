@@ -1,19 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPLMWP</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/icons/site.webmanifest">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script>
+        function validateTeams() {
+            const battingTeam = document.querySelector('select[name="bat"]').value;
+            const bowlingTeam = document.querySelector('select[name="bowl"]').value;
 
+            // Checking if Batting Team and Bowling Team are the same
+            if (battingTeam === bowlingTeam) {
+                alert("Batting Team and Bowling Team cannot be the same. Please choose different teams.");
+            }
+        }
+
+        function validateForm(event) {
+        // Prevent form submission to handle validation
+        event.preventDefault();
+
+        // Collecting all input fields
+        const form = document.querySelector('form');
+        const battingTeam = document.querySelector('select[name="bat"]').value;
+        const bowlingTeam = document.querySelector('select[name="bowl"]').value;
+        const hostCity = document.querySelector('select[name="city"]').value;
+        const target = document.querySelector('input[name="target"]').value;
+        const currentScore = document.querySelector('input[name="score"]').value;
+        const oversCompleted = document.querySelector('input[name="overs"]').value;
+        const wicketsOut = document.querySelector('input[name="wickets"]').value;
+
+        // Check for empty fields
+        if (!battingTeam) {
+            alert("Please select a Batting Team.");
+            return;
+        }
+        if (!bowlingTeam) {
+            alert("Please select a Bowling Team.");
+            return;
+        }
+        if (battingTeam === bowlingTeam) {
+            alert("Batting Team and Bowling Team cannot be the same. Please choose different teams.");
+            return;
+        }
+        if (!hostCity) {
+            alert("Please select a Host City.");
+            return;
+        }
+        if (!target) {
+            alert("Please enter a Target score.");
+            return;
+        }
+        if (!currentScore) {
+            alert("Please enter the Current Score.");
+            return;
+        }
+        if (!oversCompleted) {
+            alert("Please enter the Overs Completed.");
+            return;
+        }
+        if (!wicketsOut) {
+            alert("Please enter the number of Wickets Out.");
+            return;
+        }
+
+        // If all fields are valid, submit the form
+        form.submit();
+    }
+    </script>
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
-</body>
 
+  <div class="f-box">
+    
+    <h2>IPL MATCH WINNER PREDICTOR</h2>
+    <form method="POST" action="predict" onsubmit="validateForm(event)">
+      
+      <div class="user-box">
+        <label>Batting Team</label>
+        <select name="bat">
+            <option value="">--Select--</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+            <option value="Gujarat Titans">Gujarat Titans</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+            <option value="Punjab Kings">Punjab Kings</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+        </select>
+      </div>
+      
+      <div class="user-box">
+        <label>Bowling Team</label>
+        <select name="bowl" onchange="validateTeams()">
+            <option value="">--Select--</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+            <option value="Gujarat Titans">Gujarat Titans</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Lucknow Super Giants">Lucknow Super Giants</option>
+            <option value="Punjab Kings">Punjab Kings</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+        </select>
+      </div>
+      
+      <div class="user-box">
+        <label>Host City</label>
+        <select name="city">
+            <option value="">--Select--</option>
+            <option value="Abu Dhabi">Abu Dhabi</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Bloemfontein">Bloemfontein</option>
+            <option value="Cape Town">Cape Town</option>
+            <option value="Centurion">Centurion</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Cuttack">Cuttack</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Dharamshala">Dharamshala</option>
+            <option value="Dubai">Dubai</option>
+            <option value="Durban">Durban</option>
+            <option value="East London">East London</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Indore">Indore</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Johannesburg">Johannesburg</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Kimberley">Kimberley</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Navi Mumbai">Navi Mumbai</option>
+            <option value="Port Elizabeth">Port Elizabeth</option>
+            <option value="Pune">Pune</option>
+            <option value="Raipur">Raipur</option>
+            <option value="Rajkot">Rajkot</option>
+            <option value="Ranchi">Ranchi</option>
+            <option value="Sharjah">Sharjah</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>            
+        </select>
+      </div>
+      
+      <div class="user-box">
+        <label>Target</label>
+        <input type="number" name="target" required="">
+        </div>
+      
+      <div class="user-box">
+        <label>Current Score</label>
+        <input type="number" name="score" required="">
+      </div>
+      
+      <div class="user-box">
+        <label for="oc">Overs Completed</label>
+        <input type="number" name="overs" required="" id="oc" min="0" max="20">
+        </div>
+      
+      <div class="user-box">
+        <label for="quantity">Wickets Out</label>
+        <input type="number" id="quantity" name="wickets" min="0" max="10" required="">
+      </div>
+      
+      <input type="submit" id="btnn" value="Predict">
+      
+    </form>
+
+  </div>
+</body>
 </html>

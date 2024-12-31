@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPLMWP</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/icons/site.webmanifest">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+
+	<div class="f-box">
+		<h2>IPL MATCH WINNER PREDICTOR</h2>
+        <center>
+            <h3 style="color:white; padding: 10px 0px;">WINNING PROBABILITIES</h3>
+
+            <form action="back" method="GET">
+
+                <div class="sb">
+                    {% if batteam %}
+                    <h3 class="rheade">{{batteam}}</h3> 
+                    {% if databat >=0 %}
+                    <h4 class="inp" style="color:white">[Batting Team = {{databat}} %]</h4>
+                    {%endif%}
+                    {%endif%}
+                </div>   
+                
+                <div class="sb">
+                    {% if bowlteam %}
+                    <h3 class="rheade">{{bowlteam}}</h3> 
+                    {% if databowl >=0 %}
+                    <h4 class="inp" style="color:white" >[Bowling Team = {{databowl}} %]</h4>
+                    {%endif%} 
+                    {%endif%}
+                </div>
+
+                
+            
+                <input type="submit" id="btnn" value="Home">
+            </form>
+        </center>
+    </div>
+</body>
+</html>
