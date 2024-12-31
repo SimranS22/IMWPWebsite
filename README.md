@@ -10,6 +10,8 @@ For more details on the development of the prediction model, please refer to the
 ### Demo  
 
 
+https://github.com/user-attachments/assets/2dcf11fb-466c-44fe-a8e2-999792be9da3
+
 
 ## 🏗 **Technologies Used**  
 - **Flask**: A lightweight and powerful Python web framework.  
